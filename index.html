@@ -1,89 +1,100 @@
+<!DOCTYPE html> <html lang="pt-BR"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>VivaBem - Assistente para Idosos</title>
 <style>
     * {
         box-sizing: border-box;
-        margin: 0;
-        padding: 0;
     }
 
     body {
         font-family: Arial, sans-serif;
-        background: #f2f7f2;
+        margin: 0;
+        background: #f1f8f4;
         color: #222;
-        text-align: center;
         transition: 0.3s;
     }
 
     header {
-        background: #2e7d32;
+        background: #26734d;
         color: white;
-        padding: 35px 20px;
+        padding: 30px;
+        text-align: center;
     }
 
     header h1 {
         font-size: 40px;
-        margin-bottom: 10px;
-    }
-
-    header p {
-        font-size: 20px;
     }
 
     main {
         max-width: 900px;
-        margin: 30px auto;
-        padding: 20px;
+        margin: auto;
+        padding: 25px;
     }
 
-    .cards {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-
-    .card {
+    section {
         background: white;
         padding: 25px;
+        margin-bottom: 25px;
         border-radius: 15px;
         box-shadow: 0 3px 10px #ccc;
     }
 
-    .card span {
-        font-size: 45px;
+    h2 {
+        color: #26734d;
     }
 
-    .card h2 {
-        color: #2e7d32;
-        margin: 10px;
-    }
-
-    .card p {
-        font-size: 18px;
-    }
-
-    .acessibilidade {
-        margin-top: 30px;
-    }
-
-    button {
-        background: #2e7d32;
-        color: white;
-        border: none;
-        padding: 14px 18px;
+    input {
+        padding: 12px;
         margin: 5px;
-        border-radius: 8px;
-        cursor: pointer;
+        border: 2px solid #ccc;
+        border-radius: 7px;
         font-size: 16px;
     }
 
+    button {
+        padding: 12px 18px;
+        margin: 5px;
+        border: none;
+        border-radius: 7px;
+        background: #26734d;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
     button:hover {
-        background: #1b5e20;
+        background: #185438;
+    }
+
+    .item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #eef7f1;
+        padding: 12px;
+        margin: 8px 0;
+        border-radius: 8px;
+    }
+
+    .emergencia {
+        background: #ffe5e5;
+        border-left: 6px solid #d32f2f;
+    }
+
+    .emergencia a {
+        color: #b71c1c;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .concluida {
+        text-decoration: line-through;
+        opacity: 0.6;
     }
 
     footer {
-        margin-top: 30px;
-        padding: 20px;
-        background: #1b5e20;
+        background: #185438;
         color: white;
+        text-align: center;
+        padding: 20px;
     }
 
     .escuro {
@@ -91,132 +102,185 @@
         color: white;
     }
 
-    .escuro .card {
+    .escuro section {
         background: #333;
     }
 
-    .escuro .card h2 {
-        color: #81c784;
+    .escuro .item {
+        background: #444;
+    }
+
+    .escuro h2 {
+        color: #8ee0b2;
     }
 
     @media (max-width: 600px) {
-        .cards {
-            grid-template-columns: 1fr;
+        input {
+            width: 100%;
+            margin: 5px 0;
         }
 
-        header h1 {
-            font-size: 32px;
-        }
-    }
-</style>
-<style>
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-
-    body {
-        font-family: Arial, sans-serif;
-        background: #f2f7f2;
-        color: #222;
-        text-align: center;
-        transition: 0.3s;
-    }
-
-    header {
-        background: #2e7d32;
-        color: white;
-        padding: 35px 20px;
-    }
-
-    header h1 {
-        font-size: 40px;
-        margin-bottom: 10px;
-    }
-
-    header p {
-        font-size: 20px;
-    }
-
-    main {
-        max-width: 900px;
-        margin: 30px auto;
-        padding: 20px;
-    }
-
-    .cards {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-
-    .card {
-        background: white;
-        padding: 25px;
-        border-radius: 15px;
-        box-shadow: 0 3px 10px #ccc;
-    }
-
-    .card span {
-        font-size: 45px;
-    }
-
-    .card h2 {
-        color: #2e7d32;
-        margin: 10px;
-    }
-
-    .card p {
-        font-size: 18px;
-    }
-
-    .acessibilidade {
-        margin-top: 30px;
-    }
-
-    button {
-        background: #2e7d32;
-        color: white;
-        border: none;
-        padding: 14px 18px;
-        margin: 5px;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 16px;
-    }
-
-    button:hover {
-        background: #1b5e20;
-    }
-
-    footer {
-        margin-top: 30px;
-        padding: 20px;
-        background: #1b5e20;
-        color: white;
-    }
-
-    .escuro {
-        background: #222;
-        color: white;
-    }
-
-    .escuro .card {
-        background: #333;
-    }
-
-    .escuro .card h2 {
-        color: #81c784;
-    }
-
-    @media (max-width: 600px) {
-        .cards {
-            grid-template-columns: 1fr;
+        button {
+            width: 100%;
         }
 
-        header h1 {
-            font-size: 32px;
+        .item {
+            flex-direction: column;
+            gap: 10px;
         }
     }
 </style>
+
+</head> <body> <header> <h1>🌿 VivaBem</h1> <p>Um assistente simples para ajudar no dia a dia.</p> </header> <main>
+<!-- MEDICAMENTOS -->
+<section>
+    <h2>💊 Meus medicamentos</h2>
+
+    <input
+        type="text"
+        id="remedio"
+        placeholder="Nome do medicamento">
+
+    <input
+        type="time"
+        id="horario">
+
+    <button onclick="adicionarRemedio()">
+        Adicionar
+    </button>
+
+    <div id="listaRemedios"></div>
+</section>
+
+
+<!-- TAREFAS -->
+<section>
+    <h2>📋 Minhas tarefas</h2>
+
+    <input
+        type="text"
+        id="tarefa"
+        placeholder="Digite uma tarefa">
+
+    <button onclick="adicionarTarefa()">
+        Adicionar tarefa
+    </button>
+
+    <div id="listaTarefas"></div>
+</section>
+
+
+<!-- EMERGÊNCIA -->
+<section>
+    <h2>🚨 Números de emergência</h2>
+
+    <div class="item emergencia">
+        🚑 SAMU
+        <a href="tel:192">192</a>
+    </div>
+
+    <div class="item emergencia">
+        🚒 Bombeiros
+        <a href="tel:193">193</a>
+    </div>
+
+    <div class="item emergencia">
+        👮 Polícia
+        <a href="tel:190">190</a>
+    </div>
+</section>
+
+
+<!-- ACESSIBILIDADE -->
+<section>
+    <h2>♿ Acessibilidade</h2>
+
+    <button onclick="aumentarTexto()">
+        A+ Aumentar texto
+    </button>
+
+    <button onclick="diminuirTexto()">
+        A- Diminuir texto
+    </button>
+
+    <button onclick="modoEscuro()">
+        🌙 Modo escuro
+    </button>
+</section>
+
+</main> <footer> <p>VivaBem © 2026 - Projeto para ajudar pessoas idosas ❤️</p> </footer> <script> /* ========================= MEDICAMENTOS ========================= */ let remedios = JSON.parse(localStorage.getItem("remedios")) || []; function adicionarRemedio() { const nome = document.getElementById("remedio").value; const horario = document.getElementById("horario").value; if (nome === "" || horario === "") { alert("Preencha o nome e o horário."); return; } remedios.push({ nome: nome, horario: horario }); salvarRemedios(); document.getElementById("remedio").value = ""; document.getElementById("horario").value = ""; mostrarRemedios(); } function salvarRemedios() { localStorage.setItem( "remedios", JSON.stringify(remedios) ); } function mostrarRemedios() { const lista = document.getElementById("listaRemedios"); lista.innerHTML = ""; remedios.forEach((remedio, index) => { const item = document.createElement("div"); item.className = "item"; item.innerHTML = ` <span> 💊 <strong>${remedio.nome}</strong> - ⏰ ${remedio.horario} </span> <button onclick="removerRemedio(${index})"> Excluir </button> `; lista.appendChild(item); }); } function removerRemedio(index) { remedios.splice(index, 1); salvarRemedios(); mostrarRemedios(); } /* ========================= TAREFAS ========================= */ let tarefas = JSON.parse(localStorage.getItem("tarefas")) || []; function adicionarTarefa() { const campo = document.getElementById("tarefa"); const texto = campo.value.trim(); if (texto === "") { alert("Digite uma tarefa."); return; } tarefas.push({ texto: texto, concluida: false }); salvarTarefas(); campo.value = ""; mostrarTarefas(); } function salvarTarefas() { localStorage.setItem( "tarefas", JSON.stringify(tarefas) ); } function mostrarTarefas() { const lista = document.getElementById("listaTarefas"); lista.innerHTML = ""; tarefas.forEach((tarefa, index) => { const item = document.createElement("div"); item.className = "item"; if (tarefa.concluida) { item.classList.add("concluida"); } item.innerHTML = ` <span> ${tarefa.concluida ? "✅" : "⬜"} ${tarefa.texto} </span> <div> <button onclick="concluirTarefa(${index})"> Concluir </button> <button onclick="removerTarefa(${index})"> Excluir </button> </div> `; lista.appendChild(item); }); } function concluirTarefa(index) { tarefas[index].concluida = !tarefas[index].concluida; salvarTarefas(); mostrarTarefas(); } function removerTarefa(index) { tarefas.splice(index, 1); salvarTarefas(); mostrarTarefas(); } /* ========================= ACESSIBILIDADE ========================= */ let tamanhoFonte = 16; function aumentarTexto() { if (tamanhoFonte < 28) { tamanhoFonte += 2; document.body.style.fontSize = tamanhoFonte + "px"; } } function diminuirTexto() { if (tamanhoFonte > 12) { tamanhoFonte -= 2; document.body.style.fontSize = tamanhoFonte + "px"; } } function modoEscuro() { document.body.classList.toggle("escuro"); } /* ========================= VERIFICAR HORÁRIO DO REMÉDIO ========================= */ function verificarRemedios() { const agora = new Date(); const horaAtual = agora.getHours() .toString() .padStart(2, "0"); const minutoAtual = agora.getMinutes() .toString() .padStart(2, "0"); const horarioAtual = horaAtual + ":" + minutoAtual; remedios.forEach(remedio => { if (remedio.horario === horarioAtual) { alert( "💊 Lembrete!\n\nEstá na hora de tomar: " + remedio.nome ); } }); } /* ========================= INICIAR SISTEMA ========================= */ mostrarRemedios(); mostrarTarefas(); setInterval(verificarRemedios, 60000); </script> </body> </html>
+<!-- MEDICAMENTOS -->
+<section>
+    <h2>💊 Meus medicamentos</h2>
+
+    <input
+        type="text"
+        id="remedio"
+        placeholder="Nome do medicamento">
+
+    <input
+        type="time"
+        id="horario">
+
+    <button onclick="adicionarRemedio()">
+        Adicionar
+    </button>
+
+    <div id="listaRemedios"></div>
+</section>
+
+
+<!-- TAREFAS -->
+<section>
+    <h2>📋 Minhas tarefas</h2>
+
+    <input
+        type="text"
+        id="tarefa"
+        placeholder="Digite uma tarefa">
+
+    <button onclick="adicionarTarefa()">
+        Adicionar tarefa
+    </button>
+
+    <div id="listaTarefas"></div>
+</section>
+
+
+<!-- EMERGÊNCIA -->
+<section>
+    <h2>🚨 Números de emergência</h2>
+
+    <div class="item emergencia">
+        🚑 SAMU
+        <a href="tel:192">192</a>
+    </div>
+
+    <div class="item emergencia">
+        🚒 Bombeiros
+        <a href="tel:193">193</a>
+    </div>
+
+    <div class="item emergencia">
+        👮 Polícia
+        <a href="tel:190">190</a>
+    </div>
+</section>
+
+
+<!-- ACESSIBILIDADE -->
+<section>
+    <h2>♿ Acessibilidade</h2>
+
+    <button onclick="aumentarTexto()">
+        A+ Aumentar texto
+    </button>
+
+    <button onclick="diminuirTexto()">
+        A- Diminuir texto
+    </button>
+
+    <button onclick="modoEscuro()">
+        🌙 Modo escuro
+    </button>
+</section>
